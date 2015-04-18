@@ -6,6 +6,7 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -31,17 +32,18 @@ public class RayStaffPlugin extends JavaPlugin implements Listener{
 					numRayos = Integer.parseInt(args[0]);
 				}
 			}catch(NumberFormatException e){
-				p.sendMessage("Colega " + args[0] + " no es un numero!!!!!!" + ChatColor.GOLD + " ¿Estas flipando?");
+				p.sendMessage("Colega " + args[0] + " no es un numero!!!!!!");
 			}
 			
 			
 			
 			//Crea una nueva vara
-			ItemStack varaFuego = new ItemStack(Material.STICK);
+			ItemStack varaFuego = new ItemStack(Material.DIAMOND_SWORD);
 			ItemMeta varaMeta = varaFuego.getItemMeta();
-			varaMeta.setDisplayName(ChatColor.BLUE + "Vara de rayos de " + p.getName());
+			varaMeta.setDisplayName(ChatColor.BLUE + "Espada de rayos de " + p.getName());
 			varaFuego.setItemMeta(varaMeta);
 			p.setItemInHand(varaFuego);
+			p.getItemInHand().addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 100);
 
 		}
 
