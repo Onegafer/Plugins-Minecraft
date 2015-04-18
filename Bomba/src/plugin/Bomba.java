@@ -2,6 +2,7 @@ package plugin;
 
 import net.md_5.bungee.api.ChatColor;
 
+import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -75,6 +76,7 @@ public class Bomba extends JavaPlugin implements Listener{
 								bombaLoc.setY(i--);
 								bombaBloque = bombaLoc.getBlock();
 								bombaBloque.setType(Material.TNT);
+								bombaLoc.getWorld().playEffect(bombaLoc, Effect.SMOKE, 10);
 							}
 						}
 						else{
