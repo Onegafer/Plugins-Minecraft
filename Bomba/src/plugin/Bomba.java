@@ -76,7 +76,7 @@ public class Bomba extends JavaPlugin implements Listener{
 								bombaLoc.setY(i--);
 								bombaBloque = bombaLoc.getBlock();
 								bombaBloque.setType(Material.TNT);
-								bombaLoc.getWorld().playEffect(bombaLoc, Effect.SMOKE, 10);
+								bombaLoc.getWorld().playEffect(bombaLoc, Effect.SMOKE, 11);
 							}
 						}
 						else{
