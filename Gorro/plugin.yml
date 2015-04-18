@@ -1,9 +1,0 @@
-name: RayStaff
-main: plugin.RayStaffPlugin
-author: [Fernando]
-description: Vara de rayos
-version: 1.0
-commands:
-  raystaff:
-    description: nothing
-    usage: "Usage: nothing"
