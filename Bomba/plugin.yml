@@ -1,0 +1,9 @@
+name: Bomba
+main: plugin.Bomba
+author: [Fernando]
+description: Bomba!
+version: 1.0
+commands:
+  bomba:
+    description: nothing
+    usage: "Usage: nothing"

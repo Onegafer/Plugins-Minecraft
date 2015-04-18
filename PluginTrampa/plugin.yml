@@ -1,0 +1,9 @@
+name: PluginTrampa
+main: plugin.PluginTrampa
+author: [Fernando]
+description: Plugin de Trampas
+version: 1.0
+commands:
+  trampa:
+    description: nothing
+    usage: "Usage: nothing"

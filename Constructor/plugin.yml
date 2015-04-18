@@ -1,0 +1,9 @@
+name: Constructor
+main: plugin.Constructor
+author: [Fernando]
+description: Plugin de construcciones
+version: 1.0
+commands:
+  construir:
+    description: nothing
+    usage: "Usage: nothing"

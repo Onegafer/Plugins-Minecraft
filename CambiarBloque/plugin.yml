@@ -1,0 +1,9 @@
+name: CambiarBloque
+main: plugin.CambiarBloque
+author: [Autor]
+description: Sin descripcion de momento...
+version: 1.0
+commands:
+  cambiar:
+    description: nothing
+    usage: "Usage: nothing"

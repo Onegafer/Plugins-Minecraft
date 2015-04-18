@@ -1,0 +1,9 @@
+name: TorreDeVigilancia
+main: plugin.TorreDeVigilancia
+author: [Fernando]
+description: Torre de Vigilancia
+version: 1.0
+commands:
+  torre:
+    description: nothing
+    usage: "Usage: nothing"

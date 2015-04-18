@@ -1,0 +1,9 @@
+name: FireStaff
+main: plugin.FireStaffPlugin
+author: [Autor]
+description: Sin descripcion de momento...
+version: 1.0
+commands:
+  firestaff:
+    description: nothing
+    usage: "Usage: nothing"
