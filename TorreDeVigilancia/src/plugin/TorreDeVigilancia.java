@@ -36,7 +36,8 @@ public class TorreDeVigilancia extends JavaPlugin implements Listener{
 
 	boolean animales;
 
-	Location torreLoc2;
+	Location torreLoc;
+	Location defaultPlayerLoc;
 
 	ArrayList<Location> locs = new ArrayList<>();
 
@@ -53,8 +54,8 @@ public class TorreDeVigilancia extends JavaPlugin implements Listener{
 
 
 		if(command.getName().equalsIgnoreCase("torre") && p.isOp()){
-
-
+			Location playerLoc = p.getLocation();
+			defaultPlayerLoc = p.getLocation();
 			if(args.length == 0){
 				p.sendMessage(ChatColor.RED + "Introduce el tipo de torre: "+ ChatColor.YELLOW + "animales" + " o " + ChatColor.BLUE + "jugadores");
 			}
@@ -64,6 +65,8 @@ public class TorreDeVigilancia extends JavaPlugin implements Listener{
 			if(args != null && args.length > 0){
 				if(args[0].equalsIgnoreCase("animales") ){
 					animales = true;
+	
+					torreLoc = playerLoc.add(5, 0, 5);
 
 					if(args.length > 1){
 						try{
@@ -77,6 +80,7 @@ public class TorreDeVigilancia extends JavaPlugin implements Listener{
 
 					if(args[0].equalsIgnoreCase("jugadores")){
 						animales = false;
+						torreLoc = playerLoc.add(5, 0, 5);
 						if(args.length > 1){
 							try{
 								radioTorre = Integer.parseInt(args[1]);
@@ -126,10 +130,9 @@ public class TorreDeVigilancia extends JavaPlugin implements Listener{
 
 		playerName = p.getName();
 
-		Location playerLoc = p.getLocation();
 
-		final Location torreLoc = playerLoc.add(5, 0, 5);
-		torreLoc2 = torreLoc;
+
+
 		torreLoc.getBlock().setType(Material.STONE);
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -309,7 +312,7 @@ public class TorreDeVigilancia extends JavaPlugin implements Listener{
 		r.runTaskTimer(this, 60, 60);
 
 
-	}
+	}////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 	@EventHandler
@@ -317,20 +320,28 @@ public class TorreDeVigilancia extends JavaPlugin implements Listener{
 		final Player p = e.getPlayer();
 		Location playerLoc = p.getLocation();
 		String playerName2 = p.getName();
-
+		p.sendMessage("1");
 		List<Entity> entidades = p.getWorld().getEntities();
 
 		if(animales == true){
+			p.sendMessage("2");
 			for(Entity entidad : entidades){
-				for(Location torreLoc : locs){
+				p.sendMessage("2.4");
+				//for(final Location torreLoc : locs){
+					p.sendMessage("2.5");
 					if(torreLoc != null){
+						p.sendMessage("3");
 						double distancia = entidad.getLocation().distance(torreLoc);
-
-						if(distancia < radioTorre && !(entidad instanceof Player)){
+						
+						if(distancia < radioTorre){
+							p.sendMessage("Dentro del radio!");
+							if(!(entidad instanceof Player)){
 							entidad.getWorld().strikeLightning(playerLoc);
+							p.sendMessage("4");
+							}
 						}
-					}
-				}
+					}else{p.sendMessage("torreLoc es null!");};
+				//}
 			}
 
 		}else{
