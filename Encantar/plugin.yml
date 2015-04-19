@@ -1,0 +1,5 @@
+name: Encantar
+version: 1.0
+main: plugin.Encantar
+commands:
+  encantar:

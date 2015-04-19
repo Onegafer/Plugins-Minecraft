@@ -1,0 +1,9 @@
+name: RastroParticulas
+main: plugin.RastroParticulas
+author: [Fernando]
+description: Rastro de particulas
+version: 1.0
+commands:
+  rastro:
+    description: nothing
+    usage: ""
