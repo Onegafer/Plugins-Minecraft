@@ -11,15 +11,10 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Animals;
-import org.bukkit.entity.Creature;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
-import org.bukkit.entity.Monster;
 import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
@@ -76,7 +71,8 @@ public class TorreDeVigilancia extends JavaPlugin implements Listener {
 											|| entidad.getType() == EntityType.ZOMBIE
 											|| entidad.getType() == EntityType.CREEPER
 											|| entidad.getType() == EntityType.SKELETON
-											|| entidad.getType() == EntityType.ENDERMAN) {
+											|| entidad.getType() == EntityType.ENDERMAN
+											|| entidad.getType() == EntityType.SPIDER) {
 										if (entidad.getLocation().getY() >= alturaTorre) {
 											entidad.getWorld().strikeLightning(entidad.getLocation());
 										}

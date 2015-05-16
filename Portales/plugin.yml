@@ -1,0 +1,8 @@
+name: Portales
+main: plugin.Portales
+author: [Fernando]
+description: Portales
+version: 1.0
+commands:
+  destino:
+  casa:

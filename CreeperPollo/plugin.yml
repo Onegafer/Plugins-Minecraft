@@ -1,0 +1,7 @@
+name: CreeperPollo
+main: plugin.Creeperpollo
+author: [Fernando]
+description: Convierte creepers en pollos
+version: 1.0
+commands:
+  creeperstaff:
