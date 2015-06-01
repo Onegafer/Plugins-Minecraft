@@ -45,8 +45,6 @@ public class RayStaffPlugin extends JavaPlugin implements Listener{
 
 						//Lanza rayo
 
-
-
 						for (int i = 0; i < numRayos ; i++){
 							Location locRayo  = p.getTargetBlock(null, 255).getLocation();
 
