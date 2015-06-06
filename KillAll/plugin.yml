@@ -1,0 +1,9 @@
+name: KillAll
+main: plugin.KillAll
+author: [Fernando]
+description: Mata a todas las entidades
+version: 1.0
+commands:
+  killall:
+    description: nothing
+    usage: "Usage: nothing"

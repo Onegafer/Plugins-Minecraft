@@ -66,7 +66,9 @@ public class FireStaffPlugin extends JavaPlugin implements Listener{
 
 							if (distancia < 50 && entidad.getType() != EntityType.ARROW && entidad.getType() != EntityType.PLAYER) {
 								
-								entidad.getWorld().spawnEntity(entidad.getLocation().add(0, 5, 0), EntityType.ARROW);
+								entidad.getWorld().createExplosion(entidad.getLocation(), 10);
+								
+								
 							}
 
 						}

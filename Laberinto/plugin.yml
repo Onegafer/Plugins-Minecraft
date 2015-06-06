@@ -1,0 +1,9 @@
+name: Laberinto
+main: plugin.Laberinto
+author: [Fernando]
+description: Plugin para construir un laberinto
+version: 1.0
+commands:
+  laberinto:
+    description: nothing
+    usage: "Usage: nothing"

@@ -80,6 +80,12 @@ public class Constructor extends JavaPlugin implements Listener{
 
 				construirPiramide(centro, alturaPiramide, materialPiramide );
 
+			}else if(args[0].equalsIgnoreCase("puente")){
+				
+				Player p = (Player)sender;
+				
+				construirLaberinto(p);
+				
 			}
 
 
@@ -87,6 +93,33 @@ public class Constructor extends JavaPlugin implements Listener{
 		}		
 
 		return false;
+	}
+
+	private void construirLaberinto(Player p) {
+		
+		Location puenteLoc = p.getLocation().add(1, 0, 0);
+		
+		double mirandoX = p.getEyeLocation().getDirection().getX();
+		double mirandoY = p.getEyeLocation().getDirection().getY();
+		double mirandoZ = p.getEyeLocation().getDirection().getZ();
+		
+		
+		
+		while(puenteLoc.getBlock().getType() == Material.AIR){
+			
+			puenteLoc.getBlock().setType(Material.SANDSTONE);
+			puenteLoc.add(0, 0, 1).getBlock().setType(Material.SANDSTONE);
+			puenteLoc.add(0, 0, -1);
+			
+			puenteLoc.add(1, 0, 0);
+			
+		}
+
+		
+		
+		
+		
+		
 	}
 
 	private void construirPiramide(Location centro, int alturaPiramide,  Material materialPiramide) {
@@ -111,6 +144,7 @@ public class Constructor extends JavaPlugin implements Listener{
 					if(dist  % 4 ==0){
 						centro.getWorld().getBlockAt(i + xCentro, h + yCentro, j + zCentro).setType(Material.GOLD_BLOCK);
 					}
+					
 					
 					
 					
