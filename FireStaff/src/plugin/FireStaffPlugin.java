@@ -31,9 +31,11 @@ import org.bukkit.util.Vector;
 
 public class FireStaffPlugin extends JavaPlugin implements Listener{
 	int numBolas = 10; //El número de bolas de fuego a generar
-	
+
 	Location entidadLoc;
 
+	ArrayList<Entity> entidades = new ArrayList<Entity>();
+	ArrayList<Entity> entidadesCerca = new ArrayList<Entity>();
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command command,String label, String[] args) {
@@ -50,21 +52,28 @@ public class FireStaffPlugin extends JavaPlugin implements Listener{
 			varaFuego.setItemMeta(varaMeta);
 			p.setItemInHand(varaFuego);
 
-			BukkitRunnable r = new BukkitRunnable() {
+			new BukkitRunnable() {
 
 				@Override
 				public void run() {
-					
+
 					List<Entity> entidades = p.getWorld().getEntities();
 
 					for (Entity entidad : entidades) {
-						if (entidad.getLocation().distance(p.getLocation()) < 10) {
-							entidadLoc = entidad.getLocation();
+						if (entidad.getLocation().distance(p.getLocation()) < 50) {
+
+							double distancia = entidad.getLocation().distance(p.getLocation());
+
+							if (distancia < 50 && entidad.getType() != EntityType.ARROW && entidad.getType() != EntityType.PLAYER) {
+								
+								entidad.getWorld().spawnEntity(entidad.getLocation().add(0, 5, 0), EntityType.ARROW);
+							}
+
 						}
+
 					}
 				}
-			};
-			r.runTaskTimer(this, 5, 5);
+			}.runTaskTimer(this, 10, 10);
 
 		}
 
@@ -111,14 +120,19 @@ public class FireStaffPlugin extends JavaPlugin implements Listener{
 					if(im.getDisplayName() !=null && im.getDisplayName().contains("fuego")){
 						Player p = event.getPlayer();
 
-						Entity flecha = p.getWorld().spawnEntity(p.getLocation(), EntityType.ARROW);
-
-						Vector direccion = entidadLoc.add(0, 1, 0).subtract(p.getLocation()).toVector();
-
-						flecha.setVelocity(direccion);
 
 
+						if(entidadLoc != null){
 
+							Entity flecha = p.getWorld().spawnEntity(p.getLocation().add(3, 0, 0), EntityType.ARROW);
+
+							Vector direccion = entidadLoc.add(0, 1, 0).subtract(p.getLocation()).toVector();
+
+							flecha.setVelocity(direccion);
+
+						}else{
+							p.sendMessage("EntidadLoc es null");
+						}
 					}
 				}
 			}
