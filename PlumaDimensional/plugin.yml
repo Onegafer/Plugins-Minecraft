@@ -1,0 +1,9 @@
+name: PlumaDimensional
+main: plugin.PlumaDimensional
+author: [Fernando]
+description: Pluma que te teletransporta
+version: 1.0
+commands:
+  tpstaff:
+    description: nothing
+    usage: "Usage: nothing"

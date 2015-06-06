@@ -1,0 +1,8 @@
+name: PuertasDimensionales
+main: plugin.PuertasDimensionales
+author: [Fernando]
+description: Puertas que te teletransportan
+version: 1.0
+commands:
+  puerta:
+  hola:
